@@ -8,6 +8,63 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <link rel="script" src="./assets/script.js" />
+    <center>
+      <h1 id="Para1">5 Days Weather Forecast</h1>
+      <p id="inputContainer">City: <input type="text" id="cityInput" /></p>
+      <button type="button" id="searchBtn">Click Me</button>
+    </center>
+    <div>
+      <h2>City</h2>
+      <h2 id="cityName">City</h2>
+      <h2>Current Temperature</h2>
+      <h4 id="currentTemp"></h4>
+      <h2>Current Humidity</h2>
+      <h4 id="currentHumid"></h4>
+    </div>
+    <div id="weatherContainer">
+      <div id="iconsContainer">
+        <div class="icons">
+          <p class="weather" id="day1"></p>
+          <div class="image">
+            <img src="" class="imgClass" id="img1" />
+          </div>
+          <p class="minValues" id="day1Min">Loading...</p>
+          <p class="maxValues" id="day1Max">Loading...</p>
+        </div>
+        <div class="icons">
+          <p class="weather" id="day2"></p>
+          <div class="image">
+            <img src="" class="imgClass" id="img2" />
+          </div>
+          <p class="minValues" id="day2Min">Loading...</p>
+          <p class="maxValues" id="day2Max">Loading...</p>
+        </div>
+        <div class="icons">
+          <p class="weather" id="day3"></p>
+          <div class="image">
+            <img src="" class="imgClass" id="img3" />
+          </div>
+          <p class="minValues" id="day3Min">Loading...</p>
+          <p class="maxValues" id="day3Max">Loading...</p>
+        </div>
+        <div class="icons">
+          <p class="weather" id="day4"></p>
+          <div class="image">
+            <img src="" class="imgClass" id="img4" />
+          </div>
+          <p class="minValues" id="day4Min">Loading...</p>
+          <p class="maxValues" id="day4Max">Loading...</p>
+        </div>
+        <div class="icons">
+          <p class="weather" id="day5"></p>
+          <div class="image">
+            <img src="" class="imgClass" id="img5" />
+          </div>
+          <p class="minValues" id="day5Min">Loading...</p>
+          <p class="maxValues" id="day5Max">Loading...</p>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/script.js"></script>
   </body>
 </html>
