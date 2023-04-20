@@ -10,8 +10,10 @@ if (localStorage.getItem("cities")) {
 }
 deleteHistory.addEventListener("click", function () {
   localStorage.clear();
+  cityArray = [];
   displayCity();
 });
+
 function displayCity() {
   history.textContent = "";
   for (let i = 0; i < cityArray.length; i++) {
@@ -24,6 +26,7 @@ function displayCity() {
       lookup(this.textContent);
     });
   }
+  console.log(cityArray);
 }
 displayCity();
 //  DISPLAY CURRENT DAY WEATHER DATA
@@ -31,14 +34,14 @@ function displayCurrent(data) {
   cityArray.push(data.name);
   localStorage.setItem("cities", JSON.stringify(cityArray));
   document.getElementById("cityName").textContent = data.name;
-
   document.getElementById("currentHumid").textContent = data.main.humidity;
   document.getElementById("currentTemp").textContent = data.main.temp;
   document.getElementById("currentWind").textContent = data.wind.speed;
+  displayCity();
 }
 
 function displayForecast(lat, lon) {
-  const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -118,7 +121,7 @@ function displayForecast(lat, lon) {
 }
 function lookup(city) {
   let queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     APIKey;
