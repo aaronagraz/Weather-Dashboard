@@ -20,24 +20,37 @@ function displayCity() {
     let button = document.createElement("button");
     let br = document.createElement("br");
     button.textContent = cityArray[i];
+    console.log(cityArray);
     history.appendChild(button);
     history.appendChild(br);
     button.addEventListener("click", function () {
-      lookup(this.textContent);
+      lookup(button.textContent);
     });
   }
   console.log(cityArray);
 }
 displayCity();
-//  DISPLAY CURRENT DAY WEATHER DATA
+// //  DISPLAY CURRENT DAY WEATHER DATA
+// function displayCurrent(data) {
+//   if (!cityArray.push(data.name);
+//   localStorage.setItem("cities", JSON.stringify(cityArray));
+//   document.getElementById("cityName").textContent = data.name;
+//   document.getElementById("currentHumid").textContent = data.main.humidity;
+//   document.getElementById("currentTemp").textContent = data.main.temp;
+//   document.getElementById("currentWind").textContent = data.wind.speed;
+//   displayCity();
+// }
 function displayCurrent(data) {
-  cityArray.push(data.name);
-  localStorage.setItem("cities", JSON.stringify(cityArray));
+  if (!cityArray.includes(data.name)) {
+    // Only add the city to the array if it's not already in there
+    cityArray.push(data.name);
+    localStorage.setItem("cities", JSON.stringify(cityArray));
+  }
   document.getElementById("cityName").textContent = data.name;
   document.getElementById("currentHumid").textContent = data.main.humidity;
   document.getElementById("currentTemp").textContent = data.main.temp;
   document.getElementById("currentWind").textContent = data.wind.speed;
-  displayCity();
+  displayCity(); // Call the displayCity function after adding the city to the array
 }
 
 function displayForecast(lat, lon) {
